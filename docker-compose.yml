@@ -12,18 +12,34 @@ services:
         volumes: 
             - C:/Users/pc/Desktop/Studia/Devops/devops/postgres:/var/lib/postgresql/data
     mybackend:
-        image: 'xallal/mybackend_dev'
+        image: 'xallal/mybackend'
         build:
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile
             context: ./mybackend
         volumes: 
             - /opt/app/node_modules/
-            - /C:/Users/pc/Desktop/Studia/Devops/devops/mybackend:/opt/app
-        ports: 
-            - "4000:4000"
+            - C:/Users/pc/Desktop/Studia/Devops/devops/mybackend:/opt/app
+        environment: 
+            CHOKIDAR_USEPOLLING: "true"
         environment: 
             - POSTGRES_PASSWORD=12345678A!
             - POSTGRES_DB=postgres
             - POSTGRES_USER=postgres
             - REDIS_HOST=myredis
             - POSTGRES_HOST=mypostgres
+    mynginx:
+        restart: always
+        build: 
+            dockerfile: Dockerfile
+            context: ./mynginx
+        ports:
+            - '9090:80'
+    myfrontend:
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./myfrontend
+        environment: 
+            CHOKIDAR_USEPOLLING: "true"
+        volumes: 
+            - /opt/app/node_modules
+            - C:/Users/pc/Desktop/Studia/Devops/devops/myfrontend:/opt/app

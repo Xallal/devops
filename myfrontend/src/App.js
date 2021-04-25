@@ -15,13 +15,12 @@ function App() {
 
   return (
     <div>
-      {initialValue}<br />
-    <input onChange ={handleInitialValue}/>
+    Poniżej wynik GET do bazy danych:<br /><br />
 
     <Post noPosts={initialValue} changeParentHandler={setInitialValue}/><br /><br />
-    Formularz do POST (robiony na lekcji)<br />
+    Formularz do POST<br />
     <Myform/><br /><br />
-    Formularz do Update<br />
+    Formularz do UPDATE<br />
     <MyPUT/><br /><br />
     Formularz do DELETE<br />
     <MyDELETE/><br /><br />

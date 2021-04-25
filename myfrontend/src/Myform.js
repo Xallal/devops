@@ -24,8 +24,8 @@ const Myform = (props) => {
 
     return(<>
 
-        <input type ='text' value = {title} onChange={event => setTitle(event.target.value)}/><br/>
-        <input type ='text' value = {body} onChange={event => setBody(event.target.value)}/><br/>
+        <input type ='text' value = {title} onChange={event => setTitle(event.target.value)}/> Name<br/>
+        <input type ='text' value = {body} onChange={event => setBody(event.target.value)}/> Email<br/>
 
         <input type ='submit' value='OK' onClick={handleSubmit} />
     </>);

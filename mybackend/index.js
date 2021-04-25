@@ -6,12 +6,18 @@ const db = require('./queries')
 
 
 
+const redis = require('redis');
 
+const redisClient = redis.createClient({
+host: "myredis",
+port:6379,
+retry_startegy: () => 1000
+}); 
 
 
 const { Pool } = require('pg');
 
-const pgClient = new Pool({
+const pgClient = new Pool({ 
     user:"postgres",
     password:"12345678A!",
     database:"postgres",

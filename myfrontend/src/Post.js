@@ -8,7 +8,7 @@ const Post = (props) => {
     const [number, setNumber] = useState(-1);
 
     useEffect(()=> {
-       axios.get('https://jsonplaceholder.typicode.com/posts') 
+       axios.get('/api/users') 
        .then(response => setPosts(response.data))
        .catch(error => console.log(error))
     },[]);
@@ -27,12 +27,9 @@ return (
         {posts
         //.filter(post => post.title.startsWith('a'))
         
-        .map(post => (<div key={post.id}onClick={handlePostClick}>{post.title}</div>))}
+        .map(post => (<div key={post.id}onClick={handlePostClick}>{post.name}{post.email}{post.id}  </div>))}
     </div>
-    <div>
-        <div>Number {number} </div>
-        <input onChange={handleNumberChange}/>
-    </div>
+
     </>
 );
 }
