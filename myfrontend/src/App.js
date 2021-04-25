@@ -18,10 +18,13 @@ function App() {
       {initialValue}<br />
     <input onChange ={handleInitialValue}/>
 
-    <Post noPosts={initialValue} changeParentHandler={setInitialValue}/><br />
-    <Myform/><br />
-    <MyPUT/><br />
-    <MyDELETE/><br />
+    <Post noPosts={initialValue} changeParentHandler={setInitialValue}/><br /><br />
+    Formularz do POST (robiony na lekcji)<br />
+    <Myform/><br /><br />
+    Formularz do Update<br />
+    <MyPUT/><br /><br />
+    Formularz do DELETE<br />
+    <MyDELETE/><br /><br />
     </div>
    
   );

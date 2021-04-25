@@ -25,12 +25,12 @@ const MyPUT = (props) => {
 
     return(<>
 
-        <input type ='text' value = {name} onChange={event => setname(event.target.value)}/><br/>
-        <input type ='text' value = {email} onChange={event => setemail(event.target.value)}/><br/>
-        <input type ='text' value = {userId} onChange={event => setuserId(event.target.value)}/><br/>
+        <input type ='text' value = {name} onChange={event => setname(event.target.value)}/> Name <br/>
+        <input type ='text' value = {email} onChange={event => setemail(event.target.value)}/> Email <br/>
+        <input type ='text' value = {userId} onChange={event => setuserId(event.target.value)}/> Id usera<br/>
         <input type ='submit' value='OK' onClick={handleSubmit} />
     </>);
 
 };
 
-export default Myform;
+export default MyPUT;
