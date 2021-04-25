@@ -47,7 +47,7 @@ const getUserById = (request,response) => {
             var rows = JSON.stringify(results.rows);
             console.log(`${id}`)
             console.log(rows)
-            redisClient.set(`${id}`,600,rows)
+            redisClient.setex(id,600,`${rows}`)
             response.status(200).json(results.rows)
           })
 
