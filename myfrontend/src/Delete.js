@@ -8,7 +8,7 @@ const MyDELETE = (props) => {
         console.log(`Dane do wysłania ${userId}`);
 
 
-       axios.delete(`http://localhost:5000/users/${userId}`) 
+       axios.delete(`/api/users/${userId}`) 
        .then(function (response){
            console.log(response);
        })

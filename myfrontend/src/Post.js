@@ -27,7 +27,7 @@ return (
         {posts
         //.filter(post => post.title.startsWith('a'))
         
-        .map(post => (<div key={post.id}onClick={handlePostClick}>{post.name}{post.email}{post.id}  </div>))}
+        .map(post => (<div key={post.id}onClick={handlePostClick}>{post.name}{post.email}{post.cash}{post.id}  </div>))}
     </div>
 
     </>

@@ -3,13 +3,14 @@ import axios from 'axios';
 
 const Myform = (props) => {
 
-    const [title,setTitle] = useState("");
-    const [body,setBody] = useState("");
+    const [name,setname] = useState("");
+    const [email,setemail] = useState("");
+    const [userCash,setuserCash] = useState("");
     const handleSubmit = (event) => {
-        console.log(`Dane do wysłania ${title} ${body}`);
+        console.log(`Dane do wysłania ${name} ${email} ${userCash}`);
 
 
-       axios.post('https://jsonplaceholder.typicode.com/posts', {title: title,body: body, userId:1}) 
+       axios.post('/api/users', {name: name,email: email,cash: userCash}) 
        .then(function (response){
            console.log(response);
        })
@@ -24,8 +25,9 @@ const Myform = (props) => {
 
     return(<>
 
-        <input type ='text' value = {title} onChange={event => setTitle(event.target.value)}/> Name<br/>
-        <input type ='text' value = {body} onChange={event => setBody(event.target.value)}/> Email<br/>
+        <input type ='text' value = {name} onChange={event => setname(event.target.value)}/> Name<br/>
+        <input type ='text' value = {email} onChange={event => setemail(event.target.value)}/> Email<br/>
+        <input type ='number' value = {userCash} onChange={event => setuserCash(event.target.value)}/> Cash<br/>
 
         <input type ='submit' value='OK' onClick={handleSubmit} />
     </>);

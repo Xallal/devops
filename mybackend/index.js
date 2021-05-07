@@ -4,7 +4,10 @@ const cors = require('cors');
 const app = express();
 const db = require('./queries')
 
-
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
 const redis = require('redis');
 
@@ -34,11 +37,12 @@ pgClient.on('connect',() => {
 
 });
 
-pgClient.query('CREATE TABLE IF NOT EXISTS users (ID SERIAL PRIMARY KEY, name varchar(30) , email varchar(50))').catch((err) =>{
+
+pgClient.query('CREATE TABLE IF NOT EXISTS users (ID SERIAL PRIMARY KEY, name varchar(30) , email varchar(50), cash INT)').catch((err) =>{
 console.log(`Nie udało się`) 
 });
 
-app.get("/", (req,res) => {res.send("Hello World")});
+app.get("/", (req,res) => {res.send("Hello World ")});
 
 app.get('/users', db.getUsers)
 app.get('/users/:id',db.cache, db.getUserById)

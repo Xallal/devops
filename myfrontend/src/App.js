@@ -20,6 +20,7 @@ function App() {
     <Post noPosts={initialValue} changeParentHandler={setInitialValue}/><br /><br />
     Formularz do POST<br />
     <Myform/><br /><br />
+    
     Formularz do UPDATE<br />
     <MyPUT/><br /><br />
     Formularz do DELETE<br />
